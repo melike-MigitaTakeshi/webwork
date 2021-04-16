@@ -18,23 +18,7 @@
   <a-assets>
     <a-asset-item id="gltf" src="model_000.gltf"></a-asset-item>   <!-- glbファイル -->
   </a-assets>
- 
-  <!-- マーカーを登録（プリセットされている「hiro」マーカー） -->
-  <a-marker preset="hiro">
-    <!-- マーカーの場所に箱を置く（見やすいようにワイヤーフレーム表示） -->
-    <a-box position="0 0.5 0" wireframe="true"></a-box>
-  </a-marker>
- 
-  <!-- マーカーを登録（プリセットされている「人」マーカー） -->
-  <a-marker preset="kanji">
-    <!-- マーカーの場所に OBJ 形式の 3DCG を置く -->
-    <a-obj-model
-      src="#gltf"
-      scale="0.005 0.005 0.005"
-      position="0 0.5 0"
-      animation="property:rotation; from:0 0 0; to:0 360 0; dur:3000; easing:linear; loop:true;">
-    </a-obj-model>
-  </a-marker>
+  <a-entity gltf-model="#gltf" scale="0.01 0.01 0.01"></a-entity>
  
   <!-- AR用のカメラを置く -->
   <a-entity camera></a-entity>
