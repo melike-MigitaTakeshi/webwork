@@ -17,7 +17,7 @@
 	video.style.left = '0px';
 	video.width = window.innerWidth ;
 	video.height = window.innerHeight ;
-    navigator.getUserMedia({video: true, audio: false}, 
+    navigator.getUserMedia({video: { facingMode: { exact: "environment" } } , audio: false}, 
      function(stream) { // for success case
       console.log(stream);
       video.srcObject = stream ;
