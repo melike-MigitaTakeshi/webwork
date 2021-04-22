@@ -41,33 +41,13 @@
 
 <!-- A-Frame の VR空間に AR.js を紐づける（デバッグUIを非表示） -->
 <a-scene embedded arjs="debugUIEnabled:false;">
- 
-  <!-- OBJ形式のCGモデルの読み込み -->
-  <a-assets>
-    <!--a-asset-item id="model" src="model_000.gltf"></a-asset-item>   <!-- objファイル -->
-  </a-assets>
-   <a-text value="Marker Searching!!" position=" 0 0 1" align="center" rotation="-90 0 0" color="#888888">
-  </a-text>
- 
-  <!-- マーカーを登録 -->
-  <a-marker preset="hiro">
-   <a-text value="Hit!!" position=" 0 0 1" align="center" rotation="-90 0 0" color="#FF0000">
-  </a-text>
-  </a-marker>
-
-<!--
-  <a-marker type="pattern" url="kuma.patt">
--->
-
-<!--
-  </a-marker>
--->
-     <!--a-entity gltf-model="#model" scale="0.01 0.01 0.01"></a-entity>-->
-     
-  <!-- AR用のカメラを置く -->
-  <a-entity camera></a-entity>
- 
-</a-scene> 
+    <a-scene>
+      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+      <a-sky color="#ECECEC"></a-sky>
+    </a-scene>
 </body>
 </html>
 
