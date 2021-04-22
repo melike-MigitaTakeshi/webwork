@@ -46,14 +46,17 @@
   <a-assets>
     <!--a-asset-item id="model" src="model_000.gltf"></a-asset-item>   <!-- objファイル -->
   </a-assets>
-     <a-box color="#080" depth="0.1" height="0.1" width="0.1"></a-box>
+  <a-box color="#080" depth="0.1" height="0.1" width="0.1"></a-box>
 
   <!-- マーカーを登録 -->
+  <a-marker preset="hiro>"  </a-marker>
+
+<!--
   <a-marker type="pattern" url="kuma.patt">
-    <!-- マーカーの場所に OBJ 形式の 3DCG を置く -->
      <a-box color="#888" depth="0.5" height="0.5" width="0.5"></a-box>
-     <!--a-entity gltf-model="#model" scale="0.01 0.01 0.01"></a-entity>-->
   </a-marker>
+-->
+     <!--a-entity gltf-model="#model" scale="0.01 0.01 0.01"></a-entity>-->
  
   <!-- AR用のカメラを置く -->
   <a-entity camera></a-entity>
