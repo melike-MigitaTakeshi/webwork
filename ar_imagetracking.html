@@ -43,11 +43,13 @@
     vr-mode-ui="enabled: false;"
     renderer="logarithmicDepthBuffer: true;"
     embedded
-    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
+    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: true;"
   >
     <!-- a-nft is the anchor that defines an Image Tracking entity -->
     <!-- on 'url' use the path to the Image Descriptors created before. -->
     <!-- the path should end with the name without the extension e.g. if file is 'pinball.fset' the path should end with 'pinball' -->
+        <a-sphere position="0 0.25 -10" radius="0.25" color="#FF0000"></a-sphere>
+
     <a-nft
       type="nft"
       url="./kuma_nft/kuma_nft"
@@ -57,12 +59,15 @@
       smoothThreshold="5"
     >
         <!-- as a child of the a-nft entity, you can define the content to show. here's a GLTF model entity -->
+        <a-sphere position="0 1.25 -10" radius="1.25" color="#00FF00"></a-sphere>
+<!--
         <a-entity
             gltf-model="./model_000.gltf"
             scale="5 5 5"
             position="50 150 0"
         >
         </a-entity>
+-->
     </a-nft>
     <!-- static camera that moves according to the device movemenents -->
     <a-entity camera></a-entity>
