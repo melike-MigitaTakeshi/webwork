@@ -4,6 +4,32 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AR</title>
+<script>
+    AFRAME.registerComponent('registerevents', {
+        init: function () {
+            var marker = this.el;
+
+            // マーカーを検出したイベントの登録
+            marker.addEventListener('markerFound', function () {
+                var markerId = marker.id;
+                console.log('markerFound', markerId);
+
+                // アニメーションの開始
+                document.querySelector('#kumake').emit('markerfound');
+            });
+
+            // マーカーを見失ったイベントの登録
+            marker.addEventListener('markerLost', function () {
+                var markerId = marker.id;
+                console.log('markerLost', markerId);
+
+                // アニメーションの停止
+                document.querySelector('#kumake').emit('markerlost');
+            });
+        }
+    });
+</script>
+
 </head>
 
 <!-- import aframe and then ar.js with image tracking / location based features -->
@@ -51,6 +77,7 @@
     <!-- the path should end with the name without the extension e.g. if file is 'pinball.fset' the path should end with 'pinball' -->
     <!--    <a-sphere position="0 0.25 -10" radius="0.25" color="#FF0000"></a-sphere> -->
 
+    <a-sphere ID="kumake" position="0 2.5 -5" radius="0.25" color="#FF0000"></a-sphere>
     <a-nft
       type="nft"
       url="./kuma_nft/kuma_nft"
@@ -58,10 +85,10 @@
       smoothCount="10"
       smoothTolerance=".01"
       smoothThreshold="5"
+      emitevents="true"
     >
         <!-- as a child of the a-nft entity, you can define the content to show. here's a GLTF model entity -->
-   <a-box   color="#f00" width="1" height="1" depth="1" position="0 0.5 -3" rotation="0 45 0"></a-box>
-        <a-sphere position="0 0.5 -2" radius="1.25" color="#0000FF"></a-sphere>
+        <a-sphere ID="kumake"  color="#00FF00"></a-sphere>
 <!--
         <a-entity
             gltf-model="./model_000.gltf"
