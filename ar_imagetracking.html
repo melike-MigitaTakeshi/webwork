@@ -4,37 +4,30 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AR</title>
+<!-- import aframe and then ar.js with image tracking / location based features -->
+<script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+
 <script>
+document.addEventListener('DOMContentLoaded', function(){
+   // A-Frame の初期化メソッドでマーカーイベントを設定する
     AFRAME.registerComponent('registerevents', {
         init: function () {
             var marker = this.el;
-
             // マーカーを検出したイベントの登録
             marker.addEventListener('markerFound', function () {
-                var markerId = marker.id;
-                console.log('markerFound', markerId);
-
-                // アニメーションの開始
-                document.querySelector('#kumake').emit('markerfound');
             });
 
             // マーカーを見失ったイベントの登録
             marker.addEventListener('markerLost', function () {
-                var markerId = marker.id;
-                console.log('markerLost', markerId);
-
-                // アニメーションの停止
-                document.querySelector('#kumake').emit('markerlost');
             });
         }
     });
+});
 </script>
 
 </head>
 
-<!-- import aframe and then ar.js with image tracking / location based features -->
-<script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
-<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
 
 <!-- style for the loader -->
 <style>
@@ -56,6 +49,11 @@
     font-size: 1.25em;
     color: white;
   }
+  .search_sts div {
+    text-align: center;
+    font-size: 1.25em;
+    color: white;
+  }
 </style>
 
 <body style="margin : 0px; overflow: hidden;">
@@ -71,13 +69,15 @@
     embedded
     arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: true;"
   >
+  <div class="search_sts" id="sts">
+    <div>Searching...</div>
+  </div>
 
     <!-- a-nft is the anchor that defines an Image Tracking entity -->
     <!-- on 'url' use the path to the Image Descriptors created before. -->
     <!-- the path should end with the name without the extension e.g. if file is 'pinball.fset' the path should end with 'pinball' -->
     <!--    <a-sphere position="0 0.25 -10" radius="0.25" color="#FF0000"></a-sphere> -->
 
-    <a-sphere ID="kumake" position="0 2.5 -5" radius="0.25" color="#FF0000"></a-sphere>
     <a-nft
       type="nft"
       url="./kuma_nft/kuma_nft"
@@ -88,8 +88,9 @@
       emitevents="true"
     >
         <!-- as a child of the a-nft entity, you can define the content to show. here's a GLTF model entity -->
-        <a-sphere ID="kumake"  color="#00FF00"></a-sphere>
-<!--
+ 
+ 
+        <!--
         <a-entity
             gltf-model="./model_000.gltf"
             scale="5 5 5"
