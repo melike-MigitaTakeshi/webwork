@@ -16,10 +16,14 @@ document.addEventListener('DOMContentLoaded', function(){
             var marker = this.el;
             // マーカーを検出したイベントの登録
             marker.addEventListener('markerFound', function () {
-            });
+              var elm = document.getElementById('sts');
+              elm.textContent = 'Hit Marker !!!';
+        });
 
             // マーカーを見失ったイベントの登録
             marker.addEventListener('markerLost', function () {
+              var elm = document.getElementById('sts');
+              elm.textContent = 'Lost Marker !!!';
             });
         }
     });
