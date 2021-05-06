@@ -45,12 +45,19 @@
 
   <!-- a-frame scene -->
   <a-scene embedded arjs="debugUIEnabled:false;">
-  
+  <a-assets>
+    <a-asset-item id="model_tori" src="model_000.gltf"></a-asset-item>
+  </a-assets>
 
     <a-marker type='pattern' url='./pattern-kuma_marker.patt'>
        
-      <a-box position="0 0.5 0" wireframe="true"></a-box>
-         </a-marker>
+       <a-gltf-model src="#model_tori"
+        position="0 0.5 0" 
+        scale="0.005 0.005 0.005"
+       >
+
+       </a-gltf-model>
+    </a-marker>
     <a-entity camera></a-entity>
   </a-scene>
 </body>
