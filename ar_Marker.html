@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,61 +53,5 @@
      </a-marker>
     <a-entity camera></a-entity>
   </a-scene>
-=======
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AR</title>
-
-  <!-- A-Frame ライブラリの読み込み -->
-  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-  <!-- AR.js ライブラリの読み込み -->
-  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-
-
-</head>
-
-
-<!-- style for the loader -->
-<style>
-  .arjs-loader {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 1);
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .arjs-loader div {
-    text-align: center;
-    font-size: 1.25em;
-    color: white;
-  }
-  .search_sts div {
-    text-align: center;
-    font-size: 1.25em;
-    color: white;
-  }
-</style>
-
-<body style="margin : 0px; overflow: hidden;">
-
-  <!-- a-frame scene -->
-  <a-scene embedded arjs="debugUIEnabled:false;">
-  
-
-    <a-marker type='pattern' url='./pattern-kuma_marker.patt'>
-       
-      <div class="search_sts" id="sts"><div>KUMA.</div></div>
-    </a-marker>
-    <a-entity camera></a-entity>
-  </a-scene>
->>>>>>> 02b36384dcdd02eb5a210d4d290b6bed2ca9c0a9
 </body>
+</html>
