@@ -47,16 +47,16 @@
   <!-- a-frame scene -->
   <a-scene embedded arjs="debugUIEnabled:false;">
   <a-assets>
-    <a-asset-item id="model_tori" src="mi.glb"></a-asset-item>
+    <a-asset-item id="model_mi" src="mi.gltf"></a-asset-item>
   </a-assets>
                   
     <a-marker type='pattern' url='./pattern-kuma_marker.patt'>
        
-       <a-entity gltf-model="#model_tori"  
+       <a-entity gltf-model="#model_mii"  
         position="0 0 0" 
         scale="1 1 1"
         rotation="-90 0 0"
-        animation-mixer="clip: *;" 
+        animation-mixer="clip: run_*" 
        >
 
        </a-entity>
