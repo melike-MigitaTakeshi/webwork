@@ -143,7 +143,6 @@ function takeSnapshot(video) {
     // 動画のメタ情報のロードが完了したら実行
     video.onloadedmetadata = function() {
       adjustVideo();
-      startTracking();
     };
   })
 
