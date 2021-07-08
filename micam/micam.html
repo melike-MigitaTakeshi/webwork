@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>AlpaCamera</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="./micam.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <video id="video" class="video" autoplay playsinline="true"></video>
+      <canvas id="overlay" class="overlay"></canvas>
+      <canvas id="infoview" class="infoview"></canvas>
+    </div>
+<div class="ui">
+    <img id="snap">
+    <a href="#" id="delete-photo" title="Delete Photo" class="disabled"><i class="material-icons">delete</i></a>
+    <a href="" id="take-photo" title="Take Photo"><i class="material-icons">photo_camera</i></a>
+    <a href="#" id="download-photo" download="selfie.png" title="Save Photo" class="disabled" target="_blank"><i class="material-icons">file_download</i></a>
+</div>
+
+</body>
+
+<script src="./micam.js"></script>
+
+</html>
