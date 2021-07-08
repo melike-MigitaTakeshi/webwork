@@ -2,12 +2,45 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8">
-    <title>AlpaCamera</title>
+    <title>MiCam</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <!-- A-Frame ライブラリの読み込み -->
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <!-- AR.js ライブラリの読み込み -->
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+
     <link rel="stylesheet" href="micam.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+
+
+<!-- Camera Stream -->
+   <video id="Camera" width="720" height="1280" autoplay="1" ></video>
+ 
+   <script type="text/javascript">
+    document.body.requestFullscreen();
+    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || window.navigator.mozGetUserMedia;
+    window.URL = window.URL || window.webkitURL;
+ 
+    var video = document.getElementById('Camera');
+	video.style.position = 'absolute';
+	video.style.top = '0px';
+	video.style.left = '0px';
+	video.width = window.innerWidth ;
+	video.height = window.innerHeight ;
+    navigator.getUserMedia({video: { facingMode: { exact: "environment" } } , audio: false}, 
+     function(stream) { // for success case
+      console.log(stream);
+      video.srcObject = stream ;
+     },
+     function(err) { // for error case
+      console.log(err);
+     }
+    );
+   </script>
+
   </head>
+
   <body>
     <div class="wrapper">
       <video id="video" class="video" autoplay playsinline="true"></video>
@@ -21,8 +54,26 @@
     <a href="#" id="download-photo" download="selfie.png" title="Save Photo" class="disabled" target="_blank"><i class="material-icons">file_download</i></a>
 </div>
 
+  <!-- a-frame scene -->
+  <a-scene embedded arjs="debugUIEnabled:false;">
+  <a-assets>
+    <a-asset-item id="model_tori" src="mi.gltf"></a-asset-item>
+  </a-assets>
+                  
+    <a-marker type='pattern' url='./pattern-kuma_marker.patt'>
+       
+       <a-box position="0 0.1 0" wireframe="true"></a-box>
+       <a-gltf-model src="#model_tori"
+        position="0 0.1 0" 
+        scale="0.5 0.5 0.5"
+        rotation="-90 0 0"
+       >
+
+       </a-gltf-model>
+    </a-marker>
+    <a-entity camera></a-entity>
+  </a-scene>
+
+
 </body>
-
-<script src="micam.js"></script>
-
 </html>
