@@ -43,24 +43,13 @@
 
 
   <body>
-    <div class="wrapper">
-      <video id="video" class="video" autoplay playsinline="true"></video>
-      <canvas id="infoview" class="infoview"></canvas>
-    </div>
-<div class="ui">
-    <img id="snap">
-    <a href="#" id="delete-photo" title="Delete Photo" class="disabled"><i class="material-icons">delete</i></a>
-    <a href="" id="take-photo" title="Take Photo"><i class="material-icons">photo_camera</i></a>
-    <a href="#" id="download-photo" download="selfie.png" title="Save Photo" class="disabled" target="_blank"><i class="material-icons">file_download</i></a>
-</div>
 
   <!-- a-frame scene -->
   <a-scene embedded arjs="debugUIEnabled:false;">
   <a-assets>
-    <a-asset-item id="model_tori" src="mi.gltf"></a-asset-item>
+    <a-asset-item id="model_tori" src="../mi.gltf"></a-asset-item>
   </a-assets>
                   
-    <a-marker type='pattern' url='./pattern-kuma_marker.patt'>
        
        <a-box position="0 0.1 0" wireframe="true"></a-box>
        <a-gltf-model src="#model_tori"
@@ -70,10 +59,15 @@
        >
 
        </a-gltf-model>
-    </a-marker>
     <a-entity camera></a-entity>
   </a-scene>
 
+<div class="ui">
+    <img id="snap">
+    <a href="#" id="delete-photo" title="Delete Photo" class="disabled"><i class="material-icons">delete</i></a>
+    <a href="" id="take-photo" title="Take Photo"><i class="material-icons">photo_camera</i></a>
+    <a href="#" id="download-photo" download="selfie.png" title="Save Photo" class="disabled" target="_blank"><i class="material-icons">file_download</i></a>
+</div>
 
 </body>
 </html>
