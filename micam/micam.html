@@ -15,31 +15,6 @@
   </head>
 
 
-<!-- Camera Stream -->
-   <video id="Camera" width="720" height="1280" autoplay="1" ></video>
- 
-
-   <script type="text/javascript">
-    document.body.requestFullscreen();
-    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || window.navigator.mozGetUserMedia;
-    window.URL = window.URL || window.webkitURL;
- 
-    var video = document.getElementById('Camera');
-	video.style.position = 'absolute';
-	video.style.top = '0px';
-	video.style.left = '0px';
-	video.width = window.innerWidth ;
-	video.height = window.innerHeight ;
-    navigator.getUserMedia({video: { facingMode: { exact: "environment" } } , audio: false}, 
-     function(stream) { // for success case
-      console.log(stream);
-      video.srcObject = stream ;
-     },
-     function(err) { // for error case
-      console.log(err);
-     }
-    );
-   </script>
 
 
   <body>
