@@ -19,6 +19,18 @@
 
   <body>
 
+ <script language="javascript" type="text/javascript">
+var  move_x = 0, move_y = 0;
+
+AFRAME.registerComponent('foo', {
+  events: {
+      // オブジェクトをクリック
+    click: function (evt) {
+      this.el.setAttribute('material', 'color', 'red');
+    }
+  });
+</script>
+
   <!-- a-frame scene -->
   <a-scene embedded arjs="debugUIEnabled:false;">
   <a-assets>
@@ -42,6 +54,8 @@
     <a href="" id="take-photo" title="Take Photo"><i class="material-icons">photo_camera</i></a>
     <a href="#" id="download-photo" download="selfie.png" title="Save Photo" class="disabled" target="_blank"><i class="material-icons">file_download</i></a>
 </div>
+
+
 
 </body>
 </html>
